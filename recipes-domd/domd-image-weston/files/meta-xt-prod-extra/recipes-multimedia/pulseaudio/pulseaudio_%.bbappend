@@ -1,7 +1,12 @@
-do_install_append () {
-    sed -i "/ConditionUser=!root/d" \
-    ${D}/${systemd_user_unitdir}/pulseaudio.service
+FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-    sed -i "/ConditionUser=!root/d" \
-    ${D}/${systemd_user_unitdir}/pulseaudio.socket
+SRC_URI += "file://default.pa"
+
+do_compile_append () {
+    sed -i "/ConditionUser=\!root/d" \
+    ${B}/src/pulseaudio.service
+}
+
+do_install_append () {
+    cp ${WORKDIR}/default.pa ${D}${sysconfdir}/pulse/default.pa
 }
