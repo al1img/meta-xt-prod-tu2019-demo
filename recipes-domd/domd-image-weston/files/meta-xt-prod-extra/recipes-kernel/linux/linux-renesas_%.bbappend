@@ -16,6 +16,10 @@ SRC_URI_append_rcar = " \
     file://xen-chosen.dtsi;subdir=git/arch/${ARCH}/boot/dts/renesas \
 "
 
+SRC_URI_remove = " \
+    file://0004-ADSP-enable-and-add-sound-hardware-abstraction.patch \
+"
+
 KERNEL_DEVICETREE_append_rcar = " \
     renesas/salvator-generic-doma.dtb \
 "
