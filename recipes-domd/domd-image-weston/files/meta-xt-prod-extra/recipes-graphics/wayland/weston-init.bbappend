@@ -13,4 +13,9 @@ ${D}/${systemd_system_unitdir}/weston.service
 ExecStop=\/usr\/bin\/killall \-s KILL weston\n\
 Type=simple" \
 ${D}/${systemd_system_unitdir}/weston.service
+
+    sed -i "/PAMName=login/a \
+EnvironmentFile=-\/etc\/default\/weston\n\
+ExecStartPre=\/bin\/chmod 700 \/run\/platform\/display" \
+${D}/${systemd_system_unitdir}/weston.service
 }
