@@ -1,22 +1,16 @@
-DEFAULT_SCREEN[transform]="270"
-DEFAULT_SCREEN[name]="HDMI-A-1"
+# Remove all rotated portrait mode config fragments, and add our own
+# instead, as the cluster demo display is landscape orientation.
+FILESEXTRAPATHS_prepend := "${THISDIR}/${BPN}:"
 
-WESTONSECTION[WESTONOUTPUT3]="output"
+SRC_URI_remove = " \
+    file://hdmi-a-1-180.cfg \
+    file://virtual-landscape.cfg \
+    file://kingfisher_output.cfg \
+"
 
-WESTONOUTPUT3[transform]="0"
-WESTONOUTPUT3[name]="HDMI-A-2"
-
-WESTONSECTION[WESTONOUTPUT4]="output"
-
-WESTONOUTPUT4[name]="VGA-1"
-
-python () {
-    if "salvator-x-h3-xt" in d.getVar("MACHINEOVERRIDES", expand=True):
-        d.setVarFlag("WESTONOUTPUT4", "mode", "off")
-}
-
-python () {
-    if "salvator-x-m3-xt" in d.getVar("MACHINEOVERRIDES", expand=True):
-        d.setVarFlag("DEFAULT_SCREEN", "transform", "0")
-}
-
+SRC_URI += " \
+    file://hdmi-a-1-0.cfg \
+    file://hdmi-a-2-0.cfg \
+    file://vga-1-off.cfg \
+    file://lvds-1-off.cfg \
+"
