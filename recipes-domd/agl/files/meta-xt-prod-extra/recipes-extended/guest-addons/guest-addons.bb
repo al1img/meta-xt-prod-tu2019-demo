@@ -28,6 +28,7 @@ SRC_URI = " \
     file://sndbe.service \
     file://sata_en.sh \
     file://systemd-networkd-wait-online.conf \
+    file://xendriverdomain.service \
 "
 
 S = "${WORKDIR}"
@@ -40,6 +41,7 @@ PACKAGES += " \
     ${PN}-displbe-service \
     ${PN}-android-disks-service \
     ${PN}-bridge-up-notification-service \
+    ${PN}-xendriverdomain-service \
 "
 
 FILES_${PN}-bridge-config = " \
@@ -56,6 +58,7 @@ SYSTEMD_PACKAGES = " \
     ${PN}-displbe-service \
     ${PN}-android-disks-service \
     ${PN}-bridge-up-notification-service \
+    ${PN}-xendriverdomain-service \
 "
 
 SYSTEMD_SERVICE_${PN}-display-manager-service = " display-manager.service"
@@ -65,6 +68,8 @@ SYSTEMD_SERVICE_${PN}-displbe-service = " displbe.service"
 SYSTEMD_SERVICE_${PN}-android-disks-service = " android-disks.service"
 
 SYSTEMD_SERVICE_${PN}-bridge-up-notification-service = " bridge-up-notification.service"
+
+SYSTEMD_SERVICE_${PN}-xendriverdomain-service = " xendriverdomain.service"
 
 FILES_${PN}-android-disks-service = " \
     ${systemd_system_unitdir}/android-disks.service \
@@ -85,6 +90,11 @@ FILES_${PN}-displbe-service = " \
 FILES_${PN}-bridge-up-notification-service = " \
     ${systemd_system_unitdir}/bridge-up-notification.service \
 "
+
+FILES_${PN}-xendriverdomain-service = " \
+    ${systemd_system_unitdir}/xendriverdomain.service \
+"
+
 RDEPENDS_${PN}-bridge-config = " \
     ethtool \
 "
