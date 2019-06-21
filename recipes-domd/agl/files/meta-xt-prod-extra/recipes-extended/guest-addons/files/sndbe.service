@@ -4,7 +4,11 @@ Requires=pulseaudio.service
 
 [Service]
 Type=simple
+Environment="PULSE_SERVER=unix:/var/run/user/200/pulse/native"
+Environment="PULSE_COOKIE=/run/platform/display/.config/pulse/cookie"
 ExecStartPre=/bin/sleep 1
+ExecStartPre=+amixer set "DVC Out" 100% -c 1
+ExecStartPre=+amixer set "DVC In" 100% -c 1
 ExecStart=/usr/bin/snd_be
 ExecStartPost=/usr/bin/xenstore-write drivers/sndbe/status ready
 ExecStop=/usr/bin/xenstore-write drivers/sndbe/status dead
