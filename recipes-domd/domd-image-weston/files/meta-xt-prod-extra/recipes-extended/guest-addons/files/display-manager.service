@@ -4,7 +4,7 @@ Requires=dbus.service
 Before=HomeScreen.service
 
 [Service]
-Environment="XDG_RUNTIME_DIR=/run/user/0"
+Environment="XDG_RUNTIME_DIR=/run/platform/display"
 Type=dbus
 BusName=com.epam.DisplayManager
 ExecStartPre=/usr/bin/weston-info
