@@ -3,6 +3,7 @@ IMAGE_INSTALL_append = " \
     guest-addons-bridge-up-notification-service \
     guest-addons-bridge-config \
     guest-addons-xendriverdomain-service \
+    guest-addons-display-manager-service \
     kmscube \
     aos-vis \
     logrotate \
