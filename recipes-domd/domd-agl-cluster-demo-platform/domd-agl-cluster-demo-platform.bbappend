@@ -13,7 +13,7 @@ XT_QUIRK_UNPACK_SRC_URI += "\
 "
 
 SRC_URI_rcar_append = " \
-    repo://github.com/xen-troops/manifests;protocol=https;branch=master;manifest=prod_tu2019_demo/domd.xml;scmdata=keep \
+    repo://github.com/iartemenko/manifests;protocol=https;branch=pr_kf;manifest=prod_tu2019_demo/domd.xml;scmdata=keep \
 "
 
 # these layers will be added to bblayers.conf on do_configure
