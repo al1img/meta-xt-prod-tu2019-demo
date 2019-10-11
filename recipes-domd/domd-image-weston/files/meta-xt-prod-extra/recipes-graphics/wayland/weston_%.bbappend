@@ -16,6 +16,12 @@ SRC_URI_append = "file://weston-seats.rules \
                   file://weston-seats-kf.rules \
 "
 
+# 0002-compositor-add-output-type-to-weston_output.patch       cases weston crash
+# 0003-compositor-drm-introduce-drm_get_dmafd_from_view.patch  add not used function
+SRC_URI_remove = "file://0002-compositor-add-output-type-to-weston_output.patch \
+                  file://0003-compositor-drm-introduce-drm_get_dmafd_from_view.patch \
+"
+
 FILES_${PN} += " \
     ${sysconfdir}/udev/rules.d/weston-seats.rules \
 "
